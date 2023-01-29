@@ -1,0 +1,111 @@
+<!--credit to Danilo Pasquariello-->
+<!doctype html>
+<html>
+    <head>
+        <title>Team17 Soo Bin Park, Bingrui Zong</title>
+        <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+
+    </head>
+    <body>
+        <a-scene>
+            
+            <!-- assets arrangement -->
+            <a-assets>
+                
+                <img id="sky" 
+                     src="assets/space3.png">
+      
+                <!-- Gltf Model:pikachu -->
+                <a-asset-item id="LetterG"                                             src="assets/LetterG.gltf">
+                </a-asset-item> 
+                
+                <a-asset-item id="LetterO"                                             src="assets/LetterO.gltf">
+                </a-asset-item> 
+
+                <a-asset-item id="LetterSmallG"                                             src="assets/LetterSmallG.gltf">
+                </a-asset-item> 
+
+                <a-asset-item id="LetterL"                                             src="assets/LetterI.gltf">
+                </a-asset-item> 
+
+                <a-asset-item id="LetterE"                                             src="assets/LetterE.gltf">
+                </a-asset-item> 
+                
+                <!-- Obj Model: fish--> 
+                <a-asset-item id="Sunbed"                                             src="assets/Sunbed.gltf">
+                </a-asset-item> 
+                <!-- <a-asset-item 
+                    id="fish-o"                                       src="assets/fish/NOVELO_GOLDFISH.obj">
+                </a-asset-item>
+                
+                <a-asset-item 
+                    id="fish-m" 
+                    src="assets/fish/NOVELO_GOLDFISH.mtl">
+                </a-asset-item>  -->
+
+            </a-assets>
+            
+            <!-- Sky -->
+            <a-sky src="#sky"></a-sky>
+
+            <a-entity position="0 2.25 -15" particle-system="preset: dust; color: #FFFF00; velocityValue: 6, -3, 7; velocitySpread:10 7.5 10;
+            accelerationValue: 0, -10, 0; accelerationSpread: 10, 0, 10; size: 3; particleCount: 500"></a-entity>
+
+            <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+
+            <!-- Camera -->
+            <a-entity position="0 2 13">
+                <a-camera></a-camera>
+            </a-entity>
+            
+            <!-- Your 3D Model -->
+            <a-entity gltf-model="#LetterG"
+                      position="-15 1 0"
+                      scale="5 5 5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+
+            <a-entity gltf-model="#LetterO"
+                      position="-10 2 0"
+                      scale="3 3.2 3"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+
+            <a-entity gltf-model="#LetterSmallG"
+                      position="5 2 0"
+                      scale="5 5 5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+
+            <a-entity gltf-model="#LetterL"
+                      position="10 1 0"
+                      scale="5 5 5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+
+            <a-entity gltf-model="#LetterE"
+                      position="15 1 0"
+                      scale="5 5 5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            </a-entity>
+
+            <a-entity gltf-model="#Sunbed"
+                      position="0 0 0"
+                      scale="1 1 1"
+                      rotation="0 70 0"
+                      animation__mouseenter="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true; startEvents: mouseenter";
+                      animation__mouseleave="property: rotation; to: 0 70 0; startEvents: mouseleave";>
+            </a-entity>
+            
+            <!-- <a-entity obj-model="obj:#fish-o; mtl:#fish-m"
+                      position="10 0 0"
+                      scale="0.01 0.01 0.01">
+            </a-entity> -->
+        
+     
+            
+        </a-scene>
+    </body>
+</html>
