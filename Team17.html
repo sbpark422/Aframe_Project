@@ -1,4 +1,3 @@
-<!--credit to Danilo Pasquariello-->
 <!doctype html>
 <html>
     <head>
@@ -10,44 +9,36 @@
     </head>
     <body>
         <a-scene>
-            
+
             <!-- assets arrangement -->
             <a-assets>
-                
-                <img id="sky" 
+
+                <img id="sky"
                      src="assets/space3.png">
-      
-                <!-- Gltf Model:pikachu -->
+
                 <a-asset-item id="LetterG"                                             src="assets/LetterG.gltf">
-                </a-asset-item> 
-                
+                </a-asset-item>
+
                 <a-asset-item id="LetterO"                                             src="assets/LetterO.gltf">
-                </a-asset-item> 
+                </a-asset-item>
 
                 <a-asset-item id="LetterSmallG"                                             src="assets/LetterSmallG.gltf">
-                </a-asset-item> 
+                </a-asset-item>
 
                 <a-asset-item id="LetterL"                                             src="assets/LetterI.gltf">
-                </a-asset-item> 
+                </a-asset-item>
 
                 <a-asset-item id="LetterE"                                             src="assets/LetterE.gltf">
-                </a-asset-item> 
-                
-                <!-- Obj Model: fish--> 
-                <a-asset-item id="Sunbed"                                             src="assets/Sunbed.gltf">
-                </a-asset-item> 
-                <!-- <a-asset-item 
-                    id="fish-o"                                       src="assets/fish/NOVELO_GOLDFISH.obj">
                 </a-asset-item>
-                
-                <a-asset-item 
-                    id="fish-m" 
-                    src="assets/fish/NOVELO_GOLDFISH.mtl">
-                </a-asset-item>  -->
+
+                <a-asset-item id="Sunbed"                                             src="assets/Sunbed.gltf">
+                </a-asset-item>
+
+                <a-asset-item id="PalmTree"                                             src="assets/PalmTree.gltf">
+                </a-asset-item>
 
             </a-assets>
-            
-            <!-- Sky -->
+
             <a-sky src="#sky"></a-sky>
 
             <a-entity position="0 2.25 -15" particle-system="preset: dust; color: #FFFF00; velocityValue: 6, -3, 7; velocitySpread:10 7.5 10;
@@ -55,12 +46,26 @@
 
             <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
 
-            <!-- Camera -->
             <a-entity position="0 2 13">
                 <a-camera></a-camera>
             </a-entity>
-            
+
             <!-- Your 3D Model -->
+            <a-sphere src="assets/Earth.png" position="-2 -6 -5" rotation="15 230 15" radius="8" shadow
+                      animation__mouseenter="property: rotation; to: 15 590 15; dur: 2000; easing: linear; loop: true; startEvents: mouseenter";
+                      animation__mouseleave="property: rotation; to: 15 230 15; startEvents: mouseleave";>
+                      <a-entity gltf-model="#Sunbed"
+                                position="1 6.3 -4"
+                                scale="1.3 1.3 1.3"
+                                rotation="20 180 10" shadow>
+                      </a-entity>
+                      <a-entity gltf-model="#PalmTree"
+                                position="6 8 -1"
+                                scale="0.01 0.01 0.01"
+                                rotation="0 0 -15">
+                      </a-entity>
+            </a-sphere>
+
             <a-entity gltf-model="#LetterG"
                       position="-15 1 0"
                       scale="5 5 5"
@@ -91,21 +96,7 @@
                       animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
             </a-entity>
 
-            <a-entity gltf-model="#Sunbed"
-                      position="0 0 0"
-                      scale="1 1 1"
-                      rotation="0 70 0"
-                      animation__mouseenter="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true; startEvents: mouseenter";
-                      animation__mouseleave="property: rotation; to: 0 70 0; startEvents: mouseleave";>
-            </a-entity>
-            
-            <!-- <a-entity obj-model="obj:#fish-o; mtl:#fish-m"
-                      position="10 0 0"
-                      scale="0.01 0.01 0.01">
-            </a-entity> -->
-        
-     
-            
+
         </a-scene>
     </body>
 </html>
